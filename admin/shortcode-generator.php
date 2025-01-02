@@ -127,7 +127,7 @@ function wp_gauges_admin_page()
         </div>
       </div>
     </div>
-    <div class="card" style="display: none;" id="shortcode-output">
+    <div class="card full-width" id="shortcode-output" style="display: none;">
       <h2>Generated Shortcode</h2>
       <div class="shortcode-container">
         <pre id="shortcode-text"></pre>
