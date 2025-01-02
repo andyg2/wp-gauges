@@ -55,9 +55,17 @@ add_action('admin_enqueue_scripts', function($hook) {
     );
 
     wp_enqueue_script(
+        'gauge-script',
+        plugin_dir_url(__FILE__) . 'assets/js/gauge.min.js',
+        array(),
+        WP_GAUGES_VERSION,
+        true
+    );
+
+    wp_enqueue_script(
         'wp-gauges-admin',
         plugin_dir_url(__FILE__) . 'admin/js/shortcode-generator.js',
-        array('jquery'),
+        array('jquery', 'gauge-script'),
         WP_GAUGES_VERSION,
         true
     );

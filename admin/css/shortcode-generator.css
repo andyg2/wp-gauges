@@ -2,6 +2,29 @@
     margin: 20px;
 }
 
+.gauge-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gauge-form {
+    flex: 2;
+}
+
+.gauge-preview {
+    flex: 1;
+    position: sticky;
+    top: 32px;
+    height: fit-content;
+    min-width: 300px;
+}
+
+#gauge-preview-container {
+    text-align: center;
+    padding: 20px;
+}
+
 .card {
     background: #fff;
     border: 1px solid #ccd0d4;
@@ -41,4 +64,14 @@
 
 #copy-shortcode {
     margin-top: 10px;
+}
+
+@media screen and (max-width: 782px) {
+    .gauge-container {
+        flex-direction: column;
+    }
+    
+    .gauge-preview {
+        position: static;
+    }
 }

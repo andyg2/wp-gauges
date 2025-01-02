@@ -1,4 +1,57 @@
 jQuery(document).ready(function ($) {
+  let previewGauge = null;
+
+  function updatePreviewGauge() {
+    const highlights = [];
+    const ranges = ['green', 'yellow', 'orange', 'red'];
+    const barColors = {
+      'green': '0,255,0,.15',
+      'yellow': '255,255,0,.15',
+      'orange': '255,127,0,.15',
+      'red': '255,0,0,.15'
+    };
+
+    ranges.forEach(function(range) {
+      const start = $('#gauge-' + range + '-start').val() || $('#gauge-' + range + '-start').attr('placeholder');
+      const end = $('#gauge-' + range + '-end').val() || $('#gauge-' + range + '-end').attr('placeholder');
+      if (start && end) {
+        highlights.push({
+          from: parseFloat(start),
+          to: parseFloat(end),
+          color: 'rgba(' + barColors[range] + ')'
+        });
+      }
+    });
+
+    const options = {
+      renderTo: 'preview-gauge',
+      width: 300,
+      height: 300,
+      minValue: parseFloat($('#gauge-min').val() || $('#gauge-min').attr('placeholder')),
+      maxValue: parseFloat($('#gauge-max').val() || $('#gauge-max').attr('placeholder')),
+      value: parseFloat($('#gauge-initial').val() || $('#gauge-initial').attr('placeholder')),
+      units: $('#gauge-units').val() || $('#gauge-units').attr('placeholder'),
+      title: $('#gauge-title').val() || $('#gauge-title').attr('placeholder'),
+      majorTicks: ($('#gauge-ticks').val() || $('#gauge-ticks').attr('placeholder')).split(' ').map(Number),
+      animationRule: 'bounce',
+      animationDuration: 750,
+      animatedValue: true,
+      colorBarProgress: 'rgba(50,200,50,.75)',
+      highlights: highlights,
+    };
+
+    if (previewGauge) {
+      previewGauge.destroy();
+    }
+
+    previewGauge = new RadialGauge(options).draw();
+    
+    const animateTo = parseFloat($('#gauge-animateto').val() || $('#gauge-animateto').attr('placeholder'));
+    if (!isNaN(animateTo)) {
+      previewGauge.value = animateTo;
+    }
+  }
+
   function generateShortcode() {
     var attributes = [];
 
@@ -89,6 +142,14 @@ jQuery(document).ready(function ($) {
     $('#shortcode-output').show();
   }
 
+  // Initialize preview gauge
+  updatePreviewGauge();
+
+  // Add input change handlers for live preview
+  $('#gauge-shortcode-generator input, #gauge-shortcode-generator select').on('input change', function() {
+    updatePreviewGauge();
+  });
+
   // Generate shortcode button click handler
   $('#generate-shortcode').on('click', function (e) {
     e.preventDefault();
@@ -107,3 +168,5 @@ jQuery(document).ready(function ($) {
     });
   });
 });
+
+
