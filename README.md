@@ -1,12 +1,10 @@
 # WP Gauges
 
-A powerful WordPress plugin for creating beautiful, animated gauges using simple shortcodes. Perfect for displaying metrics, progress indicators, or any numerical data in an engaging visual format.
+A WordPress plugin for creating animated gauges using simple shortcodes. Perfect for displaying metrics, progress indicators, or any numerical data in an engaging visual format.
 
 ![WP Gauges Preview](assets/images/wp-gauges-preview.png)
 
 ![WP Gauges Download](https://github.com/andyg2/wp-gauges/raw/refs/heads/main/wp-gauges.zip)
-
-## Description
 
 ## Features
 
@@ -39,10 +37,10 @@ The simplest way to create a gauge is to use the built-in shortcode generator:
 
 ### Manual Shortcode Configuration
 
-You can also create gauges manually using the `[gauge]` shortcode. Here's the basic syntax:
+You can also create gauges manually using the `[gauge]` shortcode. Here's the basic syntax without colors:
 
 ```text
-[gauge title="Speed" units="mph" min="0" max="100" animateto="65"]
+[gauge title="Speed" units="mph" min="0" max="100" animateto="65" ticks="0 10 20 30 40 50 60 70 80 90 100"]
 ```
 
 ### Available Parameters
@@ -68,12 +66,7 @@ You can also create gauges manually using the `[gauge]` shortcode. Here's the ba
 You can define up to four color-coded ranges on your gauge:
 
 ```text
-[gauge title="Temperature" units="°C" min="0" max="100" 
-  green="0 30" 
-  yellow="30 60" 
-  orange="60 80" 
-  red="80 100" 
-  animateto="75"]
+[gauge title="Temperature" units="°C" ticks="0 10 20 30 40 50 60 70 80 90 100" min="0" max="100" green="0 30" yellow="30 60" orange="60 80" red="80 100" animateto="75"]
 ```
 
 ### Examples
@@ -87,25 +80,13 @@ You can define up to four color-coded ranges on your gauge:
 2. **Temperature Gauge with Color Ranges**
 
 ```text
-[gauge title="Temperature" units="°C" min="0" max="100" 
-  ticks="0 20 40 60 80 100" 
-  green="0 30" 
-  yellow="30 60" 
-  orange="60 80" 
-  red="80 100" 
-  animateto="75"]
+[gauge title="Temperature" units="°C" min="0" max="100" ticks="0 20 40 60 80 100" green="0 30" yellow="30 60" orange="60 80" red="80 100" animateto="75"]
 ```
 
 3. **Progress Indicator**
 
 ```text
-[gauge title="Progress" units="%" min="0" max="100" 
-  ticks="0 25 50 75 100" 
-  green="75 100" 
-  yellow="50 75" 
-  orange="25 50" 
-  red="0 25" 
-  animateto="82"]
+[gauge title="Progress" units="%" min="0" max="100" ticks="0 25 50 75 100" green="75 100" yellow="50 75" orange="25 50" red="0 25" animateto="82"]
 ```
 
 ## Customization Tips
