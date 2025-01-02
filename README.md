@@ -3,7 +3,8 @@
 A powerful WordPress plugin for creating beautiful, animated gauges using simple shortcodes. Perfect for displaying metrics, progress indicators, or any numerical data in an engaging visual format.
 
 ![WP Gauges Preview](assets/images/wp-gauges-preview.png)
-![WP Gauges Download](wp-gauges.zip)
+
+![WP Gauges Download](https://github.com/andyg2/wp-gauges/raw/refs/heads/main/wp-gauges.zip)
 
 ## Description
 
@@ -40,7 +41,7 @@ The simplest way to create a gauge is to use the built-in shortcode generator:
 
 You can also create gauges manually using the `[gauge]` shortcode. Here's the basic syntax:
 
-```
+```text
 [gauge title="Speed" units="mph" min="0" max="100" animateto="65"]
 ```
 
@@ -66,7 +67,7 @@ You can also create gauges manually using the `[gauge]` shortcode. Here's the ba
 
 You can define up to four color-coded ranges on your gauge:
 
-```
+```text
 [gauge title="Temperature" units="°C" min="0" max="100" 
   green="0 30" 
   yellow="30 60" 
@@ -78,12 +79,14 @@ You can define up to four color-coded ranges on your gauge:
 ### Examples
 
 1. **Basic Speedometer**
-```
+
+```text
 [gauge title="Speed" units="mph" min="0" max="120" ticks="0 20 40 60 80 100 120" animateto="65"]
 ```
 
 2. **Temperature Gauge with Color Ranges**
-```
+
+```text
 [gauge title="Temperature" units="°C" min="0" max="100" 
   ticks="0 20 40 60 80 100" 
   green="0 30" 
@@ -94,7 +97,8 @@ You can define up to four color-coded ranges on your gauge:
 ```
 
 3. **Progress Indicator**
-```
+
+```text
 [gauge title="Progress" units="%" min="0" max="100" 
   ticks="0 25 50 75 100" 
   green="75 100" 
@@ -107,16 +111,19 @@ You can define up to four color-coded ranges on your gauge:
 ## Customization Tips
 
 ### Styling the Title
+
 - Use `titletag` to match your theme's heading hierarchy
 - Adjust `titlecol` to match your theme's color scheme
 
 ### Creating Effective Ranges
+
 - Use color ranges that make sense for your data
 - Consider using fewer ranges for simpler visuals
 - Ensure ranges don't overlap
 - Use ranges that align with your tick marks
 
 ### Animation
+
 - Set `initial` to start from a specific value
 - Use `animateto` for the target value
 - Remove `animateto` to create a static gauge
@@ -124,15 +131,19 @@ You can define up to four color-coded ranges on your gauge:
 ## Frequently Asked Questions
 
 ### Can I have multiple gauges on the same page?
+
 Yes! You can add as many gauges as you need using different shortcodes.
 
 ### Does it work with page builders?
+
 Yes, the shortcode works with most popular page builders including Elementor, Divi, and WPBakery Page Builder.
 
 ### Can I change the size of the gauge?
+
 The gauge automatically adjusts to its container width while maintaining aspect ratio.
 
 ### How can I remove the animation?
+
 Simply omit the `animateto` parameter, and the gauge will remain static at the initial value.
 
 ## Contributing
