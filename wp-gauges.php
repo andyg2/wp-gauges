@@ -120,24 +120,24 @@ add_action('init', function () {
         }
       }
     }
-    $gid = uniqid();
+    $gid = uniqid('gauge-');
 
 
-    $a['titletag'] = isset($a['titletag']) ? $a['titletag'] : 'h2';
-    $a['titlecol'] = isset($a['titlecol']) ? $a['titlecol'] : '#000';
+    $a['titletag'] = isset($a['titletag']) ? trim($a['titletag']) : 'h2';
+    $a['titlecol'] = isset($a['titlecol']) ? trim($a['titlecol']) : '#000';
 
     $html[] = '
 		<div class="text-center">
-			<' . $a['titletag'] . ' style="color:' . $a['titlecol'] . '">' . $a['title'] . '</' . $a['titletag'] . '>
+			<' . $a['titletag'] . ' style="color:' . $a['titlecol'] . '">' . trim($a['title']) . '</' . $a['titletag'] . '>
 			<canvas id="g' . $gid . '" class="w100 ' . ($a['animateto'] != '' ? 'animation' : '') . '" data-animateto="' . $a['animateto'] . '"></canvas>
 		</div>
 		<script>
 		wpgauges["g' . $gid . '"] = new RadialGauge({
 			renderTo: "g' . $gid . '",
-			minValue: ' . $a['min'] . ',
-			maxValue: ' . $a['max'] . ',
-			value: ' . $a['min'] . ',
-			units: "' . $a['units'] . '",
+			minValue: ' . floatval($a['min']) . ',
+			maxValue: ' . floatval($a['max']) . ',
+			value: ' . floatval($a['min']) . ',
+			units: "' . trim($a['units']) . '",
 			majorTicks: ' . json_encode($a['ticks']) . ',
 			animationRule: "bounce",
 			animationDuration: 750,
